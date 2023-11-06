@@ -4,7 +4,7 @@
 
 尝试输入n个 0~1000  之间的整数，将它们从小到大排序。
 
-如果需要对数据范围在 0~1000 之间的整数进行排序，我们需要 1001 个桶，来表示 0~1000 之间每一个数出现的次数。另外，此处的每一个桶的作用其实就是“标记”每个数出现的次数。
+如果需要对数据范围在 0 ~ 1000 之间的整数进行排序，我们需要 1001 个桶，来表示 0 ~ 1000 之间每一个数出现的次数。另外，此处的每一个桶的作用其实就是“标记”每个数出现的次数。
 
 代码实现如下：
 ~~~c
@@ -144,7 +144,7 @@ int main(){
 在这里将引入两个整型变量 head 和 tail。head 用来记录队列的队首（即第一位），tail 用来记录队列的队尾（即最后一位）的下一个位置。我们规定队首和队尾重合时，队列为空。
 
 在队首删除一个数的操作是 head++
-<img src="E:\Typora笔记\算法(Algorithms).assets\b7d2daf3c8b30837f905fc1ddd3d60f.jpg" alt="b7d2daf3c8b30837f905fc1ddd3d60f" style="zoom:50%;" />
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/b7d2daf3c8b30837f905fc1ddd3d60f.jpg" style="zoom:50%;" />
 
 在队尾增加一个数（假设这个数是 x）的操作是 q[tail] = x; tail++;
 
@@ -557,11 +557,11 @@ int main(){
 
 结果如下：
 
-<img src="E:\Typora笔记\算法(Algorithms).assets\image-20230422230754422.png" alt="image-20230422230754422" style="zoom:50%;" />
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/image-20230422230754422.png" alt="image-20230422230754422" style="zoom:50%;" />
 
 其实这个算法有个问题，比如我们将地图 (6,11) 的墙改为平地，小人默认站在 (3,3) 这个位置，如右下图：
 
-<img src="E:\Typora笔记\算法(Algorithms).assets\2b3953f4b0841eff38b0cd581f2555b.jpg" alt="2b3953f4b0841eff38b0cd581f2555b" style="zoom:50%;" />
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/2b3953f4b0841eff38b0cd581f2555b.jpg" alt="2b3953f4b0841eff38b0cd581f2555b" style="zoom:50%;" />
 
 根据我们之前的算法，应该将炸弹放置在 (1,11) 处，最多可以消灭 11 个敌人。其实小人根本无法走到 (1,11) 处。所以正确的答案应该是将炸弹放在 (7,11) 处，最多可以消灭 10 个敌人。我们在第四节第四章进行分析。
 
@@ -574,8 +574,8 @@ int main(){
 2. 如果 A≠B，则 A+B=C 与 B+A=C 视为不同的等式（A、B、C都大于0）
 3. 所有根火柴棍必须全部用上
 
-因为题目中最多只有 24 根火柴棍，除去 “+”和 “=” 占用的 4 根火柴棍，那么最多剩下 20 根火柴棍。而 0~9 这 10 个数字中，数字 1 需要用到的火柴棍最少，只需要 2 根火柴棍，而 20 根火柴棍最多能组成 10 个 1。因此A、B、C中的任意一个数都不能超过 11111。
-那么我们只需要分别枚举 A、B、C，范围都是 0~11111。A 所使用的火柴棍的根数，加上 B 所使用的火柴棍的根数，再加上 C 所使用的火柴棍的根数，如果恰好等于 m-4 的话，则成功找到一组解。
+因为题目中最多只有 24 根火柴棍，除去 “+”和 “=” 占用的 4 根火柴棍，那么最多剩下 20 根火柴棍。而 0 ~ 9 这 10 个数字中，数字 1 需要用到的火柴棍最少，只需要 2 根火柴棍，而 20 根火柴棍最多能组成 10 个 1。因此A、B、C中的任意一个数都不能超过 11111。
+那么我们只需要分别枚举 A、B、C，范围都是 0 ~ 11111。A 所使用的火柴棍的根数，加上 B 所使用的火柴棍的根数，再加上 C 所使用的火柴棍的根数，如果恰好等于 m-4 的话，则成功找到一组解。
 
 实现代码如下：
 ~~~c
@@ -1133,7 +1133,7 @@ int main(){
 ## 4.5 宝岛探险
 
 小哼决定去钓鱼岛探险，下面这个 10*10 的二维矩阵就是钓鱼岛的航拍地图。图中数字表示海拔，0 表示海洋，1~9 都表示陆地。小哼的飞机将会降落在(6,8)处，现在需要计算出小哼将落地所在岛的面积（即有多少个格子）。
-<img src="E:\Typora笔记\算法(Algorithms).assets\image-20230506173405896.png" alt="image-20230506173405896" style="zoom:50%;" />
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/image-20230506173405896.png" alt="image-20230506173405896" style="zoom:50%;" />
 
 其实就是从(6,8)开始广度优先搜索，每次需要向上下左右四个方向扩展，当扩展出的点大于0时就加入队列，直到队列扩展完毕。所有被加入到队列的点的总数就是小岛的面积。假设地图的大小不超过50*50。代码实现如下：
 ~~~c
@@ -1500,7 +1500,7 @@ int main(){
 
 ## 5.2 城市地图——图的深度优先遍历
 
-<img src="E:\Typora笔记\算法(Algorithms).assets\bccb01cb6a8b614905ecd4ebf0b263b.jpg" alt="bccb01cb6a8b614905ecd4ebf0b263b" style="zoom:50%;" />
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/bccb01cb6a8b614905ecd4ebf0b263b.jpg" alt="bccb01cb6a8b614905ecd4ebf0b263b" style="zoom:50%;" />
 
 数据给出如下：
 
@@ -1574,7 +1574,7 @@ int main(){
 > 3 5
 > 4 5
 
-<img src="E:\Typora笔记\算法(Algorithms).assets\e38d1755b5bb1152de632eb3642d169.jpg" alt="e38d1755b5bb1152de632eb3642d169" style="zoom:50%;" />
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/e38d1755b5bb1152de632eb3642d169.jpg" alt="e38d1755b5bb1152de632eb3642d169" style="zoom:50%;" />
 
 第一行的 5 表示有 5 个城市（城市编号 1~5）,7 表示有 7 条航线，1 表示起点城市，5 表示目标城市。接下来 7 行每行是一条类似 “a b”这样的数据表示城市 a 和城市 b 之间有航线，也就是说城市 a 和城市 b 之间可以相互到达。
 
@@ -1654,7 +1654,7 @@ int main(){
 
 暑假，小哼准备去一些城市旅游。有些城市之间只有公路，有些城市之间则没有，如下图。为了节省经费以及方便计划旅程，小哼希望在出发之前知道任意两个城市之间的最短路程。
 
-<img src="E:\Typora笔记\算法(Algorithms).assets\61da35539899f8dc3e70f7aa5914fcb.jpg" alt="61da35539899f8dc3e70f7aa5914fcb" style="zoom:50%;" />
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/61da35539899f8dc3e70f7aa5914fcb.jpg" alt="61da35539899f8dc3e70f7aa5914fcb" style="zoom:50%;" />
 
 这段代码的基本思想就是：最开始只允许经过 1 号顶点进行中转，接下来只允许经过 1 和 2 号顶点进行中转······允许经过 1~n 号所有顶点进行中转，求任意两点之间的最短路程。
 
@@ -1722,8 +1722,7 @@ for(k = 1;k <= n; k++){
 
 指定一个点（源点）到其余各个顶点的最短路径，也叫做 “单源最短路径”。例如求下图中的 1 号顶点到 2、3、4、5、6 号顶点的最短路径。
 
-![693e6629cdb52e1eaa885aa51f4c019](E:\Typora笔记\算法(Algorithms).assets\693e6629cdb52e1eaa885aa51f4c019.jpg)
-
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/693e6629cdb52e1eaa885aa51f4c019.jpg"  style="zoom:50%;" />
 算法的基本思想是：每次找到离源点最近的一个顶点，然后以该顶点为中心进行扩展，最终得到源点到其余所有点的最短路径。基本步骤如下：
 
 1. 将所有的顶点分为两部分：已知最短路程的顶点集合 P 和未知最短路径的顶点集合 Q。最开始，已知最短路径的顶点集合 P 中只有源点一个顶点。我们这里用一个 book 数组来记录哪些点在集合 P 中。例如对于某个顶点 i，如果 book[i] 为 1 则表示这个顶点在集合 P 中，如果 book[i] 为 0 则表示这个顶点在集合 Q 中。
@@ -1949,7 +1948,7 @@ int main(){
 
 每次选取队首顶点 u，对顶点 u 的所有出边进行松弛操作。例如有一条 u->v 的边，如果通过 u->v 这条边使得源点到顶点 v 的最短路程变短(dis[u] + e[u] [v] < dis[v])，且顶点 v 不在当前的队列中，就将顶点 v 放入队尾。需要注意的是，同一个顶点同时在队列中出现多次是毫无意义的，所以我们需要一个数组来判重（判断哪些点已经在队列中）。在对顶点 u 的所有出边松弛完毕后，就将顶点 u 出队。接下来不断从队列中取出新的队首顶点再进行如上操作，直至队列空为止。
 
-![a4eb316c2c39faaba04f4b90b80ea26](E:\Typora笔记\算法(Algorithms).assets\a4eb316c2c39faaba04f4b90b80ea26.jpg)
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/a4eb316c2c39faaba04f4b90b80ea26.jpg"  style="zoom:50%;" />
 
 实现代码如下：
 ~~~c
@@ -2030,10 +2029,12 @@ int main(){
 ## 7.1 堆——神奇的优先队列
 
 假设有 14 个数，分别是 99、5、36、7、22、17、46、12、2、19、25、28、1 和 92，现在我们需要删除其中最小的数，并增加一个新数 23，再次求这 14 个数中最小的一个数。首先我们把这 14 个数按照最小堆的要求（就是所有父结点都比子结点要小）放入一棵完全二叉树，就像下面这棵树一样：
-![3359f082d0d6905f641bc0a22753fd5](E:\Typora笔记\C++\算法(Algorithms).assets\3359f082d0d6905f641bc0a22753fd5.jpg)
+
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/3359f082d0d6905f641bc0a22753fd5.jpg"  style="zoom:50%;" />
 
 很显然最小的数就在堆顶，假设存储这个堆的数组叫做h的话，最小数就是 h[1] 。接下来，我们将堆顶部的数删除。将新增加的数23放到堆顶。然后进行向下调整：
-![49af4e0fc5bbc2332c908d57af7032d](E:\Typora笔记\C++\算法(Algorithms).assets\49af4e0fc5bbc2332c908d57af7032d.jpg)
+
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/49af4e0fc5bbc2332c908d57af7032d.jpg"  style="zoom:50%;" />
 
 向下调整的代码如下：
 ~~~c
@@ -2068,7 +2069,7 @@ void siftdown(int i) //传入一个需要向下调整的结点编号i，这里�
 ~~~
 
 如果只是想新增一个值，而不是删除最小值，只需要直接将新元素插入到末尾，再根据情况判断新元素是否需要上移，直到满足堆的特性为止。如果堆的大小为 N（即有 N 个元素），那么插入一个新元素所需要的时间为 O(logN)。例如我们现在要新增一个数 3。
-![40bbc6a232868cd907f9ba26b6e7441](E:\Typora笔记\C++\算法(Algorithms).assets\40bbc6a232868cd907f9ba26b6e7441.jpg)
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/40bbc6a232868cd907f9ba26b6e7441.jpg"  style="zoom:50%;" />
 
 向上调整的代码如下:
 ~~~c
@@ -2564,7 +2565,7 @@ int main(){
 
 上面这种方法的时间复杂度是O(N^2^)。如果借助 “堆”，每次选边的时间复杂度是O(logM)，然后使用邻接表来存储图的话，整个算法的时间复杂度会降低到 O(MlogN)。那么如何使用堆来优化呢？我们需要 3 个数组，如下图。
 
-![b3b9f12a1245b505d01244ed639f25a](E:\Typora笔记\C++\算法(Algorithms).assets\b3b9f12a1245b505d01244ed639f25a.jpg)
+<img src="https://github.com/maximum2974/DataStructureAlgorithm/blob/master/%E7%AE%97%E6%B3%95(Algorithms).assets/b3b9f12a1245b505d01244ed639f25a.jpg"  style="zoom:50%;" />
 
 数组 dis 用来记录生成树到各个顶点的距离。数组 h 是一个最小堆，堆里面存储的是顶点编号。请注意，这里并不是按照顶点编号的大小来建立最小堆的，而是按照顶点在数组 dis 中所对应的值来建立这个最小值。此外还需要一个数组 pos 来记录每个顶点在最小堆中的位置。例如上图中，左边最小堆的圆圈中存储的是顶点编号，圆圈右下角的数是该顶点（圆圈里面的数）到生成树的最短距离，即数组 dis中存储的值，代码如下：
 ~~~c
